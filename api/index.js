@@ -3,14 +3,10 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 const server = jsonServer.create();
-const router = jsonServer.router('db.json');
+const router = jsonServer.router('./db.json');
 const middlewares = jsonServer.defaults();
 
 server.use(middlewares);
 server.use(router);
 
 const port = process.env.PORT || 3001;
-
-server.listen(port, () => {
-  console.log(`JSON Server is running on ${port}`);
-});
